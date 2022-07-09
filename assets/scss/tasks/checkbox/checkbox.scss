@@ -1,0 +1,41 @@
+.checkbox-container {
+  position: relative;
+
+  .checkbox {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked + label {
+      background: url(../scss/tasks/img/done.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: $red;
+    }
+
+    &:hover + label {
+      background: url(../scss/tasks/img/done_opacity.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: $red;
+    }
+
+    &:checked:hover + label {
+      background: url(../scss/tasks/img/done.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: $red05;
+    }
+  }
+
+  label {
+    display: inline-block;
+    width: 29px;
+    height: 29px;
+    background-color: $red;
+    border-radius: 5px;
+    border: 2px solid transparent;
+  }
+}

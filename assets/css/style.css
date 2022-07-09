@@ -1,8 +1,329 @@
 * {
   font-size: 100%;
+  font-family: "Montserrat", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ff725f;
+}
+.wrapper .content {
+  max-width: 600px;
+  min-width: 320px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.wrapper .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+.wrapper .content .header__logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+.wrapper .content .header .menu__item {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-right: 20px;
+  transition: 0.3s ease-in;
+  width: 100px;
+  height: 35px;
+}
+.wrapper .content .header .menu__item:last-child {
+  margin-right: 0;
+}
+.wrapper .content .header .menu__item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.wrapper .content .header .menu__item:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.wrapper .content .timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 30px;
+}
+.wrapper .content .timer .type-container__elem {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: transparent;
+  margin-right: 20px;
+  transition: 0.3s ease-in;
+  width: 120px;
+  height: 35px;
+}
+.wrapper .content .timer .type-container__elem:last-child {
+  margin-right: 0;
+}
+.wrapper .content .timer .type-container__elem:hover {
+  background-color: rgba(255, 114, 95, 0.6);
+}
+.wrapper .content .timer .type-container__elem:active {
+  background-color: rgba(255, 114, 95, 0.6);
+}
+.wrapper .content .timer .type-container__elem_active {
+  background-color: rgba(255, 114, 95, 0.6);
+}
+.wrapper .content .timer .count-container {
+  margin: 20px 0;
+}
+.wrapper .content .timer .count-container__counter {
+  font-size: 72px;
+  color: #fff;
+  font-weight: 700;
+}
+.wrapper .content .timer .control-container__elem {
+  border: none;
+  border-radius: 5px;
+  color: #ff725f;
+  background-color: #fff;
+  margin-right: 20px;
+  transition: 0.3s ease-in;
+  width: 280px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-right: 0;
+}
+.wrapper .content .timer .control-container__elem:last-child {
+  margin-right: 0;
+}
+.wrapper .content .timer .control-container__elem:hover {
+  background-color: #eee;
+}
+.wrapper .content .timer .control-container__elem:active {
+  background-color: #cecece;
+}
+.wrapper .content .timer .control-container .pause {
+  display: none;
+}
+.wrapper .content .tasks,
+.wrapper .content .done-tasks {
+  margin: 30px 0;
+}
+.wrapper .content .tasks__title,
+.wrapper .content .done-tasks__title {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.wrapper .content .tasks .tasks-list__elem, .wrapper .content .tasks .tasks-list__add,
+.wrapper .content .tasks .done-tasks-list__elem,
+.wrapper .content .tasks .done-tasks-list__add,
+.wrapper .content .done-tasks .tasks-list__elem,
+.wrapper .content .done-tasks .tasks-list__add,
+.wrapper .content .done-tasks .done-tasks-list__elem,
+.wrapper .content .done-tasks .done-tasks-list__add {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 0 20px;
+  margin: 10px 0;
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container, .wrapper .content .tasks .tasks-list__add .checkbox-container,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container {
+  position: relative;
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container .checkbox, .wrapper .content .tasks .tasks-list__add .checkbox-container .checkbox,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container .checkbox,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container .checkbox,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container .checkbox,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox {
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  opacity: 0;
+  cursor: pointer;
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container .checkbox:checked + label, .wrapper .content .tasks .tasks-list__add .checkbox-container .checkbox:checked + label,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container .checkbox:checked + label,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container .checkbox:checked + label,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container .checkbox:checked + label,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:checked + label,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:checked + label,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:checked + label {
+  background: url(../scss/tasks/img/done.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ff725f;
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container .checkbox:hover + label, .wrapper .content .tasks .tasks-list__add .checkbox-container .checkbox:hover + label,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container .checkbox:hover + label,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container .checkbox:hover + label,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container .checkbox:hover + label,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:hover + label,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:hover + label,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:hover + label {
+  background: url(../scss/tasks/img/done_opacity.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ff725f;
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container .checkbox:checked:hover + label, .wrapper .content .tasks .tasks-list__add .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:checked:hover + label,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:checked:hover + label {
+  background: url(../scss/tasks/img/done.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(255, 114, 95, 0.6);
+}
+.wrapper .content .tasks .tasks-list__elem .checkbox-container label, .wrapper .content .tasks .tasks-list__add .checkbox-container label,
+.wrapper .content .tasks .done-tasks-list__elem .checkbox-container label,
+.wrapper .content .tasks .done-tasks-list__add .checkbox-container label,
+.wrapper .content .done-tasks .tasks-list__elem .checkbox-container label,
+.wrapper .content .done-tasks .tasks-list__add .checkbox-container label,
+.wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container label,
+.wrapper .content .done-tasks .done-tasks-list__add .checkbox-container label {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  background-color: #ff725f;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+.wrapper .content .tasks .tasks-list__elem .task-title,
+.wrapper .content .tasks .tasks-list__elem .done-task-title, .wrapper .content .tasks .tasks-list__add .task-title,
+.wrapper .content .tasks .tasks-list__add .done-task-title,
+.wrapper .content .tasks .done-tasks-list__elem .task-title,
+.wrapper .content .tasks .done-tasks-list__elem .done-task-title,
+.wrapper .content .tasks .done-tasks-list__add .task-title,
+.wrapper .content .tasks .done-tasks-list__add .done-task-title,
+.wrapper .content .done-tasks .tasks-list__elem .task-title,
+.wrapper .content .done-tasks .tasks-list__elem .done-task-title,
+.wrapper .content .done-tasks .tasks-list__add .task-title,
+.wrapper .content .done-tasks .tasks-list__add .done-task-title,
+.wrapper .content .done-tasks .done-tasks-list__elem .task-title,
+.wrapper .content .done-tasks .done-tasks-list__elem .done-task-title,
+.wrapper .content .done-tasks .done-tasks-list__add .task-title,
+.wrapper .content .done-tasks .done-tasks-list__add .done-task-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  flex: 1;
+  margin: 0 20px;
+}
+.wrapper .content .tasks .tasks-list__elem .task-stat,
+.wrapper .content .tasks .tasks-list__elem .done-task-stat, .wrapper .content .tasks .tasks-list__add .task-stat,
+.wrapper .content .tasks .tasks-list__add .done-task-stat,
+.wrapper .content .tasks .done-tasks-list__elem .task-stat,
+.wrapper .content .tasks .done-tasks-list__elem .done-task-stat,
+.wrapper .content .tasks .done-tasks-list__add .task-stat,
+.wrapper .content .tasks .done-tasks-list__add .done-task-stat,
+.wrapper .content .done-tasks .tasks-list__elem .task-stat,
+.wrapper .content .done-tasks .tasks-list__elem .done-task-stat,
+.wrapper .content .done-tasks .tasks-list__add .task-stat,
+.wrapper .content .done-tasks .tasks-list__add .done-task-stat,
+.wrapper .content .done-tasks .done-tasks-list__elem .task-stat,
+.wrapper .content .done-tasks .done-tasks-list__elem .done-task-stat,
+.wrapper .content .done-tasks .done-tasks-list__add .task-stat,
+.wrapper .content .done-tasks .done-tasks-list__add .done-task-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.wrapper .content .tasks .tasks-list__elem .task-stat__quanity,
+.wrapper .content .tasks .tasks-list__elem .done-task-stat__quanity, .wrapper .content .tasks .tasks-list__add .task-stat__quanity,
+.wrapper .content .tasks .tasks-list__add .done-task-stat__quanity,
+.wrapper .content .tasks .done-tasks-list__elem .task-stat__quanity,
+.wrapper .content .tasks .done-tasks-list__elem .done-task-stat__quanity,
+.wrapper .content .tasks .done-tasks-list__add .task-stat__quanity,
+.wrapper .content .tasks .done-tasks-list__add .done-task-stat__quanity,
+.wrapper .content .done-tasks .tasks-list__elem .task-stat__quanity,
+.wrapper .content .done-tasks .tasks-list__elem .done-task-stat__quanity,
+.wrapper .content .done-tasks .tasks-list__add .task-stat__quanity,
+.wrapper .content .done-tasks .tasks-list__add .done-task-stat__quanity,
+.wrapper .content .done-tasks .done-tasks-list__elem .task-stat__quanity,
+.wrapper .content .done-tasks .done-tasks-list__elem .done-task-stat__quanity,
+.wrapper .content .done-tasks .done-tasks-list__add .task-stat__quanity,
+.wrapper .content .done-tasks .done-tasks-list__add .done-task-stat__quanity {
+  font-weight: 500;
+}
+.wrapper .content .tasks .tasks-list__elem .task-stat__time,
+.wrapper .content .tasks .tasks-list__elem .done-task-stat__time, .wrapper .content .tasks .tasks-list__add .task-stat__time,
+.wrapper .content .tasks .tasks-list__add .done-task-stat__time,
+.wrapper .content .tasks .done-tasks-list__elem .task-stat__time,
+.wrapper .content .tasks .done-tasks-list__elem .done-task-stat__time,
+.wrapper .content .tasks .done-tasks-list__add .task-stat__time,
+.wrapper .content .tasks .done-tasks-list__add .done-task-stat__time,
+.wrapper .content .done-tasks .tasks-list__elem .task-stat__time,
+.wrapper .content .done-tasks .tasks-list__elem .done-task-stat__time,
+.wrapper .content .done-tasks .tasks-list__add .task-stat__time,
+.wrapper .content .done-tasks .tasks-list__add .done-task-stat__time,
+.wrapper .content .done-tasks .done-tasks-list__elem .task-stat__time,
+.wrapper .content .done-tasks .done-tasks-list__elem .done-task-stat__time,
+.wrapper .content .done-tasks .done-tasks-list__add .task-stat__time,
+.wrapper .content .done-tasks .done-tasks-list__add .done-task-stat__time {
+  font-size: 14px;
+  opacity: 0.5;
+}
+.wrapper .content .tasks .tasks-list__add,
+.wrapper .content .tasks .done-tasks-list__add,
+.wrapper .content .done-tasks .tasks-list__add,
+.wrapper .content .done-tasks .done-tasks-list__add {
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s linear;
+  cursor: pointer;
+}
+.wrapper .content .tasks .tasks-list__add .add-task-title,
+.wrapper .content .tasks .done-tasks-list__add .add-task-title,
+.wrapper .content .done-tasks .tasks-list__add .add-task-title,
+.wrapper .content .done-tasks .done-tasks-list__add .add-task-title {
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.wrapper .content .tasks .tasks-list__add .add-task-title::before,
+.wrapper .content .tasks .done-tasks-list__add .add-task-title::before,
+.wrapper .content .done-tasks .tasks-list__add .add-task-title::before,
+.wrapper .content .done-tasks .done-tasks-list__add .add-task-title::before {
+  content: "";
+  width: 29px;
+  display: inline-block;
+  height: 29px;
+  background: url(../scss/tasks/img/add.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+  margin: -4px 0 0 0;
+}
+.wrapper .content .tasks .tasks-list__add:hover,
+.wrapper .content .tasks .done-tasks-list__add:hover,
+.wrapper .content .done-tasks .tasks-list__add:hover,
+.wrapper .content .done-tasks .done-tasks-list__add:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,84 @@
+.tasks,
+.done-tasks {
+  margin: 30px 0;
+  &__title {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .tasks-list,
+  .done-tasks-list {
+    &__elem,
+    &__add {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 80px;
+      background-color: $white03;
+      border-radius: 10px;
+      padding: 0 20px;
+      margin: 10px 0;
+
+      @import "checkbox/checkbox.scss";
+
+      .task-title,
+      .done-task-title {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 300;
+        flex: 1;
+        margin: 0 20px;
+      }
+
+      .task-stat,
+      .done-task-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+
+        &__quanity {
+          font-weight: 500;
+        }
+
+        &__time {
+          font-size: 14px;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &__add {
+      background-color: $white008;
+      transition: background-color 0.3s linear;
+      cursor: pointer;
+
+      .add-task-title {
+        width: 100%;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        cursor: pointer;
+
+        &::before {
+          content: "";
+          width: 29px;
+          display: inline-block;
+          height: 29px;
+          background: url(../scss/tasks/img/add.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          vertical-align: middle;
+          margin: -4px 0 0 0;
+        }
+      }
+
+      &:hover {
+        background-color: $white02;
+      }
+    }
+  }
+}

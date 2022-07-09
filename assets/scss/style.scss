@@ -1,3 +1,20 @@
 @import "reset.scss";
 @import "_vars.scss";
 @import "helpers.scss";
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $red;
+
+  .content {
+    max-width: 600px;
+    min-width: 320px;
+    padding: 0 20px;
+    margin: 0 auto;
+
+    @import "header/header.scss";
+    @import "timer/timer.scss";
+    @import "tasks/tasks.scss";
+  }
+}

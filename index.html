@@ -7,5 +7,88 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Pomodoro</title>
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <header class="header">
+          <h1 class="header__logo">Pomodoro</h1>
+
+          <div class="menu">
+            <button class="menu__item">How To</button>
+            <button class="menu__item">Settings</button>
+          </div>
+        </header>
+
+        <section class="timer">
+          <div class="type-container">
+            <button
+              class="type-container__elem type-container__elem_active type-pomodoro"
+            >
+              Pomodoro
+            </button>
+            <button class="type-container__elem type-short">Short Break</button>
+            <button class="type-container__elem type-long">Long Break</button>
+          </div>
+
+          <div class="count-container">
+            <span class="count-container__counter"
+              ><span class="count-minutes">25</span>:<span class="count-seconds"
+                >00</span
+              ></span
+            >
+          </div>
+
+          <div class="control-container">
+            <button class="control-container__elem start">start</button>
+            <button class="control-container__elem pause">pause</button>
+          </div>
+        </section>
+
+        <section class="tasks">
+          <h3 class="tasks__title">Tasks</h3>
+
+          <div class="tasks-list">
+            <div class="tasks-list__elem task">
+              <div class="checkbox-container">
+                <input class="checkbox" type="checkbox" name="task-done" />
+                <label for="task-done"></label>
+              </div>
+
+              <p class="task-title">Task Name</p>
+
+              <div class="task-stat">
+                <span class="task-stat__quanity">1/2</span>
+                <span class="task-stat__time">23:32</span>
+              </div>
+            </div>
+
+            <div class="tasks-list__add">
+              <span class="add-task-title">Add New Task</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="done-tasks">
+          <h3 class="done-tasks__title">Done Tasks</h3>
+
+          <div class="done-tasks-list">
+            <div class="done-tasks-list__elem done">
+              <div class="checkbox-container">
+                <input class="checkbox" type="checkbox" name="task-done" />
+                <label for="task-done"></label>
+              </div>
+
+              <p class="done-task-title">Task Name</p>
+
+              <div class="done-task-stat">
+                <span class="task-stat__quanity">1/2</span>
+                <span class="task-stat__time">23:32</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>
