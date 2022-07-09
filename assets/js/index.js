@@ -6,27 +6,74 @@ const counter = document.querySelector(".count-container__counter"),
   timerTypes = document.querySelectorAll(".type-container__elem");
 
 const timer = {
-  timeRemaining: null,
+  timeRemaining: 0,
+  isPause: true,
   type: "pomodoro",
-  longBreakInterval: 4,
+  longBreakInterval: 2,
   currentInterval: 0,
   time: {
     pomodoro: 0.1,
-    shortBreak: 5,
-    longBreak: 15,
+    shortBreak: 0.1,
+    longBreak: 0.1,
   },
-  start: function () {
-    if (this.timeRemaining == null) {
-      this.timeRemaining = this.time.pomodoro * 60;
+  start: function (type) {
+    this.isPause = false;
+    if (this.timeRemaining == 0) {
+      switch (type) {
+        case "pomodoro":
+          this.timeRemaining = timer.time.pomodoro * 60;
+          break;
+        case "shortBreak":
+          this.timeRemaining = timer.time.shortBreak * 60;
+          break;
+        case "longBreak":
+          this.timeRemaining = timer.time.longBreak * 60;
+          break;
+      }
     }
     interval = setInterval(this.tick, 1000);
   },
   pause: function () {
+    this.isPause = true;
     this.clear();
     btnStart.style.display = "block";
     btnPause.style.display = "none";
   },
+  next: function (type) {
+    if (
+      timer.type == "pomodoro" &&
+      timer.currentInterval % timer.longBreakInterval == 0
+    ) {
+      timer.type = "longBreak";
+      timer.start(timer.type);
+    } else if (timer.type == "pomodoro") {
+      timer.type = "shortBreak";
+      timer.start(timer.type);
+    } else if (timer.type == "shortBreak") {
+      timer.type = "pomodoro";
+      timer.start(timer.type);
+    } else if (timer.type == "longBreak") {
+      timer.type = "pomodoro";
+      timer.start(timer.type);
+    }
+    clearClass(timerTypes, "type-container__elem_active");
+    document
+      .querySelector(`.${timer.type}`)
+      .classList.add("type-container__elem_active");
+  },
   tick: function () {
+    if (timer.timeRemaining <= 0) {
+      if (timer.type == "pomodoro") {
+        timer.currentInterval += 1;
+      }
+      timer.clear();
+      timer.next();
+      return;
+
+      // btnStart.style.display = "block";
+      // btnPause.style.display = "none";
+    }
+
     timer.timeRemaining -= 1;
     timerDisplay(timer.timeRemaining);
   },
@@ -77,7 +124,7 @@ const switchTypes = (className) => {
 btnStart.addEventListener("click", () => {
   btnStart.style.display = "none";
   btnPause.style.display = "block";
-  timer.start();
+  timer.start(timer.type);
 });
 
 btnPause.addEventListener("click", () => {
@@ -87,8 +134,12 @@ btnPause.addEventListener("click", () => {
 });
 
 timerTypes.forEach((item) => {
+  timer.isPause = true;
   item.addEventListener("click", (event) => {
-    timer.clear();
+    if (timer.isPause == false) {
+      timer.clear();
+    }
+
     btnStart.style.display = "block";
     btnPause.style.display = "none";
 
