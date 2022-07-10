@@ -1,0 +1,54 @@
+.modal-settings {
+  @include modal(430px, 400px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    margin: 20px 20px;
+
+    li {
+      font-size: 18px;
+      color: $darkGray;
+      margin-bottom: 15px;
+
+      b {
+        color: $red;
+      }
+    }
+  }
+
+  .settings-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    .set {
+      &__title {
+      }
+
+      input {
+        width: 80%;
+      }
+    }
+  }
+
+  .controlls {
+    display: flex;
+    &__button {
+      @include btn(#fff, $red, $darkRed, $darkRedActive);
+      min-width: 130px;
+      max-width: 180px;
+      padding: 10px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .cancel {
+      @include btn(#fff, #c6c6c6, #adadad, #cfcfcf);
+    }
+  }
+}
+
+.modal-settings_active {
+  display: flex;
+}

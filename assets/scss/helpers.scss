@@ -5,6 +5,7 @@
   background-color: $bg;
   margin-right: 20px;
   transition: 0.3s ease-in;
+  cursor: pointer;
 
   &:last-child {
     margin-right: 0;
@@ -16,5 +17,28 @@
 
   &:active {
     background-color: $active;
+  }
+}
+
+@mixin modal($width, $height) {
+  position: fixed;
+  max-width: $width;
+  min-width: 290px;
+  height: $height;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  z-index: 3;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: $darkGray;
+    text-align: center;
   }
 }

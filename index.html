@@ -14,8 +14,8 @@
           <h1 class="header__logo">Pomodoro</h1>
 
           <div class="menu">
-            <button class="menu__item">How To</button>
-            <button class="menu__item">Settings</button>
+            <button class="menu__item open-modal-how">How To</button>
+            <button class="menu__item open-modal-settings">Settings</button>
           </div>
         </header>
 
@@ -90,6 +90,52 @@
         </section>
       </div>
     </div>
-    <script src="assets/js/index.js"></script>
+
+    <div class="modal-how">
+      <h3 class="modal-how__title">How To Use</h3>
+
+      <ol class="modal-how__list">
+        <li><b>Add tasks</b> to work on today</li>
+        <li>
+          <b>Set estimate pomodoros</b> (1 = 25min of work) for each tasks
+        </li>
+        <li><b>Select a task</b> to work on</li>
+        <li><b>Start timer</b> and focus on the task for 25 minutes</li>
+        <li><b>Take a break</b> for 5 minutes</li>
+        <li><b>Iterate</b> 3-5 until you finish the tasks</li>
+      </ol>
+
+      <button class="modal-how__button ok">Got It</button>
+    </div>
+
+    <div class="modal-settings">
+      <h3 class="modal-settings__title">Timer Settings</h3>
+
+      <div class="settings-wrapper">
+        <div class="set">
+          <span class="set__title">Pomodoro</span>
+          <input name="pomodoro" />
+        </div>
+
+        <div class="set">
+          <span class="set__title">Short Break</span>
+          <input name="shortBreak" />
+        </div>
+
+        <div class="set">
+          <span class="set__title">Long Break</span>
+          <input name="longBreak" />
+        </div>
+      </div>
+
+      <div class="controlls">
+        <button class="controlls__button apply">apply</button>
+        <button class="controlls__button cancel">close</button>
+      </div>
+    </div>
+
+    <div class="layout"></div>
+    <script src="assets/js/timer.js"></script>
+    <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>

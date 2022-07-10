@@ -1,0 +1,32 @@
+.modal-how {
+  @include modal(430px, 400px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    margin: 20px 20px;
+
+    li {
+      font-size: 18px;
+      color: $darkGray;
+      margin-bottom: 15px;
+
+      b {
+        color: $red;
+      }
+    }
+  }
+
+  &__button {
+    @include btn(#fff, $red, $darkRed, $darkRedActive);
+    width: 200px;
+    padding: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.modal-how_active {
+  display: flex;
+}
