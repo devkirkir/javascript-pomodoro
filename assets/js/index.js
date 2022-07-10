@@ -1,9 +1,9 @@
 const counter = document.querySelector(".count-container__counter"),
-  btnStart = document.querySelector(".start"),
-  btnPause = document.querySelector(".pause"),
   counterMin = document.querySelector(".count-minutes"),
   counterSec = document.querySelector(".count-seconds"),
-  timerTypes = document.querySelectorAll(".type-container__elem");
+  timerTypes = document.querySelectorAll(".type-container__elem"),
+  btnStart = document.querySelector(".start"),
+  btnPause = document.querySelector(".pause");
 
 const timer = {
   timeRemaining: 0,
@@ -30,7 +30,7 @@ const timer = {
     btnPause.style.display = "none";
   },
   next: function (type) {
-    // weird function
+    // weird function but ok
     if (
       timer.type == "pomodoro" &&
       timer.currentInterval % timer.longBreakInterval == 0
@@ -75,7 +75,6 @@ const timer = {
 
 const init = () => {
   mainSwitchTypes(timer.type);
-  timerDisplay(timer.timeRemaining);
 };
 
 const timerDisplay = (time) => {
@@ -97,38 +96,22 @@ const clearClass = (arr, className) => {
   });
 };
 
-const btnSwitchTypes = (className) => {
-  if (className.classList.contains("pomodoro")) {
-    timer.timeRemaining = timer.time.pomodoro * 60;
-    timerDisplay(timer.timeRemaining);
-    timer.type = "pomodoro";
-  }
-
-  if (className.classList.contains("shortBreak")) {
-    timer.timeRemaining = timer.time.shortBreak * 60;
-    timerDisplay(timer.timeRemaining);
-    timer.type = "shortBreak";
-  }
-
-  if (className.classList.contains("longBreak")) {
-    timer.timeRemaining = timer.time.longBreak * 60;
-    timerDisplay(timer.timeRemaining);
-    timer.type = "longBreak";
-  }
-};
-
 const mainSwitchTypes = (type) => {
   switch (type) {
     case "pomodoro":
       timer.timeRemaining = timer.time.pomodoro * 60;
+      timer.type = "pomodoro";
       break;
     case "shortBreak":
       timer.timeRemaining = timer.time.shortBreak * 60;
+      timer.type = "shortBreak";
       break;
     case "longBreak":
       timer.timeRemaining = timer.time.longBreak * 60;
+      timer.type = "longBreak";
       break;
   }
+  timerDisplay(timer.timeRemaining);
 };
 
 btnStart.addEventListener("click", () => {
@@ -158,7 +141,7 @@ timerTypes.forEach((item) => {
       item.classList.add("type-container__elem_active");
     }
 
-    btnSwitchTypes(item);
+    mainSwitchTypes(item.classList[1]);
   });
 });
 
