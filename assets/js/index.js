@@ -9,7 +9,7 @@ const timer = {
   timeRemaining: 0,
   isPause: true,
   type: "pomodoro",
-  longBreakInterval: 2,
+  longBreakInterval: 4,
   currentInterval: 0,
   time: {
     pomodoro: 0.1,
@@ -19,17 +19,7 @@ const timer = {
   start: function (type) {
     this.isPause = false;
     if (this.timeRemaining == 0) {
-      switch (type) {
-        case "pomodoro":
-          this.timeRemaining = timer.time.pomodoro * 60;
-          break;
-        case "shortBreak":
-          this.timeRemaining = timer.time.shortBreak * 60;
-          break;
-        case "longBreak":
-          this.timeRemaining = timer.time.longBreak * 60;
-          break;
-      }
+      mainSwitchTypes(type);
     }
     interval = setInterval(this.tick, 1000);
   },
@@ -40,6 +30,7 @@ const timer = {
     btnPause.style.display = "none";
   },
   next: function (type) {
+    // weird function
     if (
       timer.type == "pomodoro" &&
       timer.currentInterval % timer.longBreakInterval == 0
@@ -82,6 +73,11 @@ const timer = {
   },
 };
 
+const init = () => {
+  mainSwitchTypes(timer.type);
+  timerDisplay(timer.timeRemaining);
+};
+
 const timerDisplay = (time) => {
   let min = Math.floor(time / 60),
     sec = time % 60;
@@ -101,23 +97,37 @@ const clearClass = (arr, className) => {
   });
 };
 
-const switchTypes = (className) => {
-  if (className.classList.contains("type-pomodoro")) {
+const btnSwitchTypes = (className) => {
+  if (className.classList.contains("pomodoro")) {
     timer.timeRemaining = timer.time.pomodoro * 60;
     timerDisplay(timer.timeRemaining);
     timer.type = "pomodoro";
   }
 
-  if (className.classList.contains("type-short")) {
+  if (className.classList.contains("shortBreak")) {
     timer.timeRemaining = timer.time.shortBreak * 60;
     timerDisplay(timer.timeRemaining);
     timer.type = "shortBreak";
   }
 
-  if (className.classList.contains("type-long")) {
+  if (className.classList.contains("longBreak")) {
     timer.timeRemaining = timer.time.longBreak * 60;
     timerDisplay(timer.timeRemaining);
     timer.type = "longBreak";
+  }
+};
+
+const mainSwitchTypes = (type) => {
+  switch (type) {
+    case "pomodoro":
+      timer.timeRemaining = timer.time.pomodoro * 60;
+      break;
+    case "shortBreak":
+      timer.timeRemaining = timer.time.shortBreak * 60;
+      break;
+    case "longBreak":
+      timer.timeRemaining = timer.time.longBreak * 60;
+      break;
   }
 };
 
@@ -148,6 +158,8 @@ timerTypes.forEach((item) => {
       item.classList.add("type-container__elem_active");
     }
 
-    switchTypes(item);
+    btnSwitchTypes(item);
   });
 });
+
+init();
