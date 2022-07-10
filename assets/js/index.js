@@ -3,7 +3,8 @@ const counter = document.querySelector(".count-container__counter"),
   counterSec = document.querySelector(".count-seconds"),
   timerTypes = document.querySelectorAll(".type-container__elem"),
   btnStart = document.querySelector(".start"),
-  btnPause = document.querySelector(".pause");
+  btnPause = document.querySelector(".pause"),
+  btnNext = document.querySelector(".next");
 
 const timer = {
   timeRemaining: 0,
@@ -28,6 +29,7 @@ const timer = {
     this.clear();
     btnStart.style.display = "block";
     btnPause.style.display = "none";
+    btnNext.style.display = "none";
   },
   next: function (type) {
     // weird function but ok
@@ -117,13 +119,24 @@ const mainSwitchTypes = (type) => {
 btnStart.addEventListener("click", () => {
   btnStart.style.display = "none";
   btnPause.style.display = "block";
+  btnNext.style.display = "block";
   timer.start(timer.type);
 });
 
 btnPause.addEventListener("click", () => {
   btnStart.style.display = "block";
   btnPause.style.display = "none";
+  btnNext.style.display = "none";
   timer.pause();
+});
+
+btnNext.addEventListener("click", () => {
+  timer.clear();
+  if (timer.type == "pomodoro") {
+    timer.currentInterval += 1;
+  }
+  timer.next(timer.type);
+  mainSwitchTypes(timer.type);
 });
 
 timerTypes.forEach((item) => {
@@ -135,6 +148,7 @@ timerTypes.forEach((item) => {
 
     btnStart.style.display = "block";
     btnPause.style.display = "none";
+    btnNext.style.display = "none";
 
     if (event.target.classList.contains("type-container__elem")) {
       clearClass(timerTypes, "type-container__elem_active");

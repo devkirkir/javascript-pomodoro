@@ -28,6 +28,7 @@
   }
 
   .control-container {
+    position: relative;
     &__elem {
       @include btn($red, #fff, #eee, #cecece);
       width: 280px;
@@ -40,6 +41,23 @@
 
     .pause {
       display: none;
+    }
+
+    .next {
+      display: none;
+      position: absolute;
+      top: calc(50% - 13px);
+      right: -40px;
+      width: 26px;
+      height: 26px;
+      background-image: url(../scss/timer/img/next-btn.svg);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      &:hover {
+        background-image: url(../scss/timer/img/next-btn-hover.svg);
+      }
     }
   }
 }

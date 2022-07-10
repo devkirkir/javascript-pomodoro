@@ -85,6 +85,9 @@
   color: #fff;
   font-weight: 700;
 }
+.wrapper .content .timer .control-container {
+  position: relative;
+}
 .wrapper .content .timer .control-container__elem {
   border: none;
   border-radius: 5px;
@@ -110,6 +113,21 @@
 }
 .wrapper .content .timer .control-container .pause {
   display: none;
+}
+.wrapper .content .timer .control-container .next {
+  display: none;
+  position: absolute;
+  top: calc(50% - 13px);
+  right: -40px;
+  width: 26px;
+  height: 26px;
+  background-image: url(../scss/timer/img/next-btn.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.wrapper .content .timer .control-container .next:hover {
+  background-image: url(../scss/timer/img/next-btn-hover.svg);
 }
 .wrapper .content .tasks,
 .wrapper .content .done-tasks {
