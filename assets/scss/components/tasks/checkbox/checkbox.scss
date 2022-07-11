@@ -9,21 +9,21 @@
     cursor: pointer;
 
     &:checked + label {
-      background: url(../scss/tasks/img/done.svg);
+      background: url(../scss/components/tasks/img/done.svg);
       background-repeat: no-repeat;
       background-position: center center;
       background-color: $red;
     }
 
     &:hover + label {
-      background: url(../scss/tasks/img/done_opacity.svg);
+      background: url(../scss/components/tasks/img/done_opacity.svg);
       background-repeat: no-repeat;
       background-position: center center;
       background-color: $red;
     }
 
     &:checked:hover + label {
-      background: url(../scss/tasks/img/done.svg);
+      background: url(../scss/components/tasks/img/done.svg);
       background-repeat: no-repeat;
       background-position: center center;
       background-color: $red05;

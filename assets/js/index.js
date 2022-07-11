@@ -1,5 +1,5 @@
-import modal from "./modals.mjs";
-import timerModule from "./timer.mjs";
+import modal from "./modules/modals.mjs";
+import timerModule from "./modules/timer.mjs";
 
 window.addEventListener("DOMContentLoaded", () => {
   timerModule();

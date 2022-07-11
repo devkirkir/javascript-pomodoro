@@ -13,12 +13,12 @@
     padding: 0 20px;
     margin: 0 auto;
 
-    @import "header/header.scss";
-    @import "timer/timer.scss";
-    @import "tasks/tasks.scss";
+    @import "components/header/header.scss";
+    @import "components/timer/timer.scss";
+    @import "components/tasks/tasks.scss";
   }
 }
 
-@import "modals/modal-how.scss";
-@import "modals/modal-settings.scss";
-@import "layout/layout.scss";
+@import "components/modals/modal-how.scss";
+@import "components/modals/modal-settings.scss";
+@import "components/layout/layout.scss";

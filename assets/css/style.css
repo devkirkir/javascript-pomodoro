@@ -124,13 +124,13 @@
   right: -40px;
   width: 26px;
   height: 26px;
-  background-image: url(../scss/timer/img/next-btn.svg);
+  background-image: url(../scss/components/timer/img/next-btn.svg);
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .wrapper .content .timer .control-container .next:hover {
-  background-image: url(../scss/timer/img/next-btn-hover.svg);
+  background-image: url(../scss/components/timer/img/next-btn-hover.svg);
 }
 .wrapper .content .tasks,
 .wrapper .content .done-tasks {
@@ -189,7 +189,7 @@
 .wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:checked + label,
 .wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:checked + label,
 .wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:checked + label {
-  background: url(../scss/tasks/img/done.svg);
+  background: url(../scss/components/tasks/img/done.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #ff725f;
@@ -201,7 +201,7 @@
 .wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:hover + label,
 .wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:hover + label,
 .wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:hover + label {
-  background: url(../scss/tasks/img/done_opacity.svg);
+  background: url(../scss/components/tasks/img/done_opacity.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #ff725f;
@@ -213,7 +213,7 @@
 .wrapper .content .done-tasks .tasks-list__add .checkbox-container .checkbox:checked:hover + label,
 .wrapper .content .done-tasks .done-tasks-list__elem .checkbox-container .checkbox:checked:hover + label,
 .wrapper .content .done-tasks .done-tasks-list__add .checkbox-container .checkbox:checked:hover + label {
-  background: url(../scss/tasks/img/done.svg);
+  background: url(../scss/components/tasks/img/done.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-color: rgba(255, 114, 95, 0.6);
@@ -334,7 +334,7 @@
   width: 29px;
   display: inline-block;
   height: 29px;
-  background: url(../scss/tasks/img/add.svg);
+  background: url(../scss/components/tasks/img/add.svg);
   background-repeat: no-repeat;
   background-position: center center;
   vertical-align: middle;
