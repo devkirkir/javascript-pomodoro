@@ -413,7 +413,7 @@
   position: fixed;
   max-width: 430px;
   min-width: 290px;
-  height: 400px;
+  height: 300px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -445,12 +445,58 @@
   color: #ff725f;
 }
 .modal-settings .settings-wrapper {
+  min-width: 320px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   flex: 1;
 }
-.modal-settings .settings-wrapper .set input {
-  width: 80%;
+.modal-settings .settings-wrapper .settings-block {
+  display: flex;
+  margin: 15px 0;
+}
+.modal-settings .settings-wrapper .settings-block .set {
+  margin-right: 10px;
+}
+.modal-settings .settings-wrapper .settings-block .set__title {
+  display: block;
+  color: #c6c6c6;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.modal-settings .settings-wrapper .settings-block .set__input {
+  width: 100%;
+  color: #636363;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 7px 10px;
+}
+.modal-settings .settings-wrapper .settings-block .set:last-child {
+  margin-right: 0;
+}
+.modal-settings .settings-wrapper .settings-line {
+  margin: 15px 0;
+}
+.modal-settings .settings-wrapper .settings-line .set {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-settings .settings-wrapper .settings-line .set__title {
+  display: block;
+  color: #c6c6c6;
+  font-size: 16px;
+  margin: 0 10px 5px 0;
+}
+.modal-settings .settings-wrapper .settings-line .set__input {
+  width: 100px;
+  color: #636363;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 7px 10px;
 }
 .modal-settings .controlls {
   display: flex;
@@ -491,10 +537,10 @@
   margin-right: 0;
 }
 .modal-settings .controlls .cancel:hover {
-  background-color: #adadad;
+  background-color: #636363;
 }
 .modal-settings .controlls .cancel:active {
-  background-color: #cfcfcf;
+  background-color: #414141;
 }
 
 .modal-settings_active {

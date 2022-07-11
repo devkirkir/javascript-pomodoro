@@ -1,3 +1,5 @@
+import settings from "./settings.mjs";
+
 const timerModule = () => {
   const counterMin = document.querySelector(".count-minutes"),
     counterSec = document.querySelector(".count-seconds"),
@@ -22,7 +24,7 @@ const timerModule = () => {
     start: function (type) {
       this.isPause = false;
       if (this.timeRemaining == 0) {
-        mainSwitchTypes(type);
+        switchTypes(type);
       }
       interval = setInterval(this.tick, 1000);
     },
@@ -75,7 +77,7 @@ const timerModule = () => {
   };
 
   const init = () => {
-    mainSwitchTypes(timer.type);
+    switchTypes(timer.type);
   };
 
   const timerDisplay = (time) => {
@@ -97,7 +99,7 @@ const timerModule = () => {
     });
   };
 
-  const mainSwitchTypes = (type) => {
+  const switchTypes = (type) => {
     switch (type) {
       case "pomodoro":
         timer.timeRemaining = timer.time.pomodoro * 60;
@@ -136,7 +138,7 @@ const timerModule = () => {
       timer.currentInterval += 1;
     }
     timer.next(timer.type);
-    mainSwitchTypes(timer.type);
+    switchTypes(timer.type);
   });
 
   timerTypes.forEach((item) => {
@@ -155,8 +157,23 @@ const timerModule = () => {
         item.classList.add("type-container__elem_active");
       }
 
-      mainSwitchTypes(item.classList[1]);
+      switchTypes(item.classList[1]);
     });
+  });
+
+  document.querySelector(".apply").addEventListener("click", () => {
+    let { pomodoro, shortBreak, longBreak, longBreakInterval } = settings();
+    timer.time.pomodoro = pomodoro;
+    timer.time.shortBreak = shortBreak;
+    timer.time.longBreak = longBreak;
+    timer.longBreakInterval = longBreakInterval;
+
+    document
+      .querySelector(".modal-settings")
+      .classList.remove("modal-settings_active");
+    document.querySelector(".layout").style.display = "none";
+
+    switchTypes(timer.type);
   });
 
   init();

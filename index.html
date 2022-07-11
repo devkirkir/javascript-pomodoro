@@ -112,19 +112,28 @@
       <h3 class="modal-settings__title">Timer Settings</h3>
 
       <div class="settings-wrapper">
-        <div class="set">
-          <span class="set__title">Pomodoro</span>
-          <input name="pomodoro" />
+        <div class="settings-block">
+          <div class="set">
+            <span class="set__title">Pomodoro</span>
+            <input class="set__input" name="pomodoro" value="25" />
+          </div>
+
+          <div class="set">
+            <span class="set__title">Short Break</span>
+            <input class="set__input" name="shortBreak" value="5" />
+          </div>
+
+          <div class="set">
+            <span class="set__title">Long Break</span>
+            <input class="set__input" name="longBreak" value="15" />
+          </div>
         </div>
 
-        <div class="set">
-          <span class="set__title">Short Break</span>
-          <input name="shortBreak" />
-        </div>
-
-        <div class="set">
-          <span class="set__title">Long Break</span>
-          <input name="longBreak" />
+        <div class="settings-line">
+          <div class="set">
+            <span class="set__title">Long Break Interval</span>
+            <input class="set__input" name="longBreakInterval" value="4" />
+          </div>
         </div>
       </div>
 
@@ -135,7 +144,6 @@
     </div>
 
     <div class="layout"></div>
-    <script type="module" src="assets/js/timer.js"></script>
     <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>

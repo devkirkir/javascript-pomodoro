@@ -1,5 +1,5 @@
 .modal-settings {
-  @include modal(430px, 400px);
+  @include modal(430px, 300px);
   display: none;
   flex-direction: column;
   align-items: center;
@@ -19,15 +19,62 @@
   }
 
   .settings-wrapper {
+    min-width: 320px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     flex: 1;
-    .set {
-      &__title {
-      }
 
-      input {
-        width: 80%;
+    .settings-block {
+      display: flex;
+      margin: 15px 0;
+      .set {
+        margin-right: 10px;
+        &__title {
+          display: block;
+          color: $lightGray;
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+
+        &__input {
+          width: 100%;
+          color: $gray;
+          background-color: #eeeeee;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          padding: 7px 10px;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .settings-line {
+      margin: 15px 0;
+      .set {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+          display: block;
+          color: $lightGray;
+          font-size: 16px;
+          margin: 0 10px 5px 0;
+        }
+
+        &__input {
+          width: 100px;
+          color: $gray;
+          background-color: #eeeeee;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          padding: 7px 10px;
+        }
       }
     }
   }
@@ -44,7 +91,7 @@
     }
 
     .cancel {
-      @include btn(#fff, #c6c6c6, #adadad, #cfcfcf);
+      @include btn(#fff, $lightGray, $gray, $darkGray);
     }
   }
 }
