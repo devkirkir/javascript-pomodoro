@@ -155,7 +155,7 @@
   align-items: center;
   width: 100%;
   min-height: 80px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 0 20px;
   margin: 10px 0;
@@ -345,6 +345,27 @@
 .wrapper .content .done-tasks .tasks-list__add:hover,
 .wrapper .content .done-tasks .done-tasks-list__add:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+.wrapper .content .tasks .tasks-list__elem,
+.wrapper .content .tasks .done-tasks-list__elem,
+.wrapper .content .done-tasks .tasks-list__elem,
+.wrapper .content .done-tasks .done-tasks-list__elem {
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.wrapper .content .tasks .tasks-list__elem:hover,
+.wrapper .content .tasks .done-tasks-list__elem:hover,
+.wrapper .content .done-tasks .tasks-list__elem:hover,
+.wrapper .content .done-tasks .done-tasks-list__elem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.wrapper .content .tasks .tasks-list__elem_active,
+.wrapper .content .done-tasks .tasks-list__elem_active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.wrapper .content .tasks .tasks-list__elem_active:hover,
+.wrapper .content .done-tasks .tasks-list__elem_active:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .modal-how {

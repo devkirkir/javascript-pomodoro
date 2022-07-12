@@ -17,7 +17,7 @@
       align-items: center;
       width: 100%;
       min-height: 80px;
-      background-color: $white03;
+      background-color: $white01;
       border-radius: 10px;
       padding: 0 20px;
       margin: 10px 0;
@@ -79,6 +79,22 @@
       &:hover {
         background-color: $white02;
       }
+    }
+
+    &__elem {
+      cursor: pointer;
+      transition: 0.3s linear;
+      &:hover {
+        background-color: $white02;
+      }
+    }
+  }
+
+  .tasks-list__elem_active {
+    background-color: $white03;
+
+    &:hover {
+      background-color: $white03;
     }
   }
 }
