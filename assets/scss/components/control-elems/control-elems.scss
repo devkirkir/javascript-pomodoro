@@ -1,0 +1,101 @@
+.control-elems {
+  &__add {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 10px;
+    background-color: $white008;
+    transition: background-color 0.3s linear;
+    cursor: pointer;
+    padding: 0 20px;
+    margin: 10px 0;
+
+    .add-task-title {
+      width: 100%;
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        width: 29px;
+        display: inline-block;
+        height: 29px;
+        background: url(../scss/components/tasks/img/add.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        vertical-align: middle;
+        margin: -4px 0 0 0;
+      }
+    }
+
+    &:hover {
+      background-color: $white02;
+    }
+  }
+
+  .create-task-form_hide {
+    display: none;
+  }
+
+  .create-task-form_show {
+    display: flex;
+  }
+
+  .create-task-form {
+    flex-direction: column;
+    width: 100%;
+    background-color: $white01;
+    border-radius: 10px;
+    padding: 0 20px 12px;
+    margin: 10px 0;
+
+    &__input {
+      color: #fff;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      padding: 15px 0;
+      margin-bottom: 10px;
+
+      &::placeholder {
+        color: $white04;
+        font-style: italic;
+      }
+    }
+
+    &__label {
+      color: $white04;
+      margin-bottom: 6px;
+    }
+
+    &__number {
+      width: 80px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: $white03;
+      color: #fff;
+      padding: 5px 10px;
+      margin-bottom: 20px;
+    }
+
+    &-btns {
+      &__btn {
+        width: 80px;
+        @include btn(#fff, $white02, $white02, $white03);
+        padding: 6px 0;
+        margin-right: 5px;
+      }
+
+      .cancel-btn {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: transparent;
+      }
+    }
+  }
+}

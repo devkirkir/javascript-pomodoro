@@ -59,9 +59,8 @@
 
               <div class="task-stat">
                 <span class="task-stat__quanity"
-                  ><span class="current">1</span>/<span class="need"
-                    >4</span
-                  ></span
+                  ><span class="current">1</span><span class="divider">/</span
+                  ><span class="need">4</span></span
                 >
                 <span class="task-stat__time">23:32</span>
               </div>
@@ -80,34 +79,36 @@
                 <span class="task-stat__time">23:32</span>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div class="tasks-list__add tasks-list__add_show">
-              <span class="add-task-title">Add New Task</span>
-            </div>
+        <section class="control-elems">
+          <div class="control-elems__add control-elems__add">
+            <span class="add-task-title">Add New Task</span>
+          </div>
 
-            <div class="create-task-form create-task-form_hide">
-              <input
-                type="text"
-                class="create-task-form__input"
-                name="create-task-title"
-                placeholder="Type the task name here..."
-              />
-              <label class="create-task-form__label" for="create-task-title"
-                >Est Pomodoros</label
-              >
-              <input
-                type="number"
-                class="create-task-form__number"
-                name="create-task-title"
-                value="1"
-              />
+          <div class="create-task-form create-task-form_hide">
+            <input
+              type="text"
+              class="create-task-form__input"
+              name="create-task-title"
+              placeholder="Type the task name here..."
+            />
+            <label class="create-task-form__label" for="create-task-number"
+              >Est Pomodoros</label
+            >
+            <input
+              type="number"
+              class="create-task-form__number"
+              name="create-task-number"
+              value="1"
+            />
 
-              <div class="create-task-form-btns">
-                <button class="create-task-form-btns__btn add-btn">Add</button>
-                <button class="create-task-form-btns__btn cancel-btn">
-                  Cancel
-                </button>
-              </div>
+            <div class="create-task-form-btns">
+              <button class="create-task-form-btns__btn add-btn">Add</button>
+              <button class="create-task-form-btns__btn cancel-btn">
+                Cancel
+              </button>
             </div>
           </div>
         </section>
@@ -188,6 +189,5 @@
 
     <div class="layout"></div>
     <script type="module" src="assets/js/index.js"></script>
-    <!-- <script src="assets/js/modules/tasks.js"></script> -->
   </body>
 </html>

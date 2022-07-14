@@ -259,165 +259,6 @@
   font-size: 14px;
   opacity: 0.5;
 }
-.wrapper .content .tasks .tasks-list__add,
-.wrapper .content .tasks .done-tasks-list__add,
-.wrapper .content .done-tasks .tasks-list__add,
-.wrapper .content .done-tasks .done-tasks-list__add {
-  position: relative;
-  align-items: center;
-  width: 100%;
-  min-height: 80px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.08);
-  transition: background-color 0.3s linear;
-  cursor: pointer;
-  padding: 0 20px;
-  margin: 10px 0;
-}
-.wrapper .content .tasks .tasks-list__add .add-task-title,
-.wrapper .content .tasks .done-tasks-list__add .add-task-title,
-.wrapper .content .done-tasks .tasks-list__add .add-task-title,
-.wrapper .content .done-tasks .done-tasks-list__add .add-task-title {
-  width: 100%;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-}
-.wrapper .content .tasks .tasks-list__add .add-task-title::before,
-.wrapper .content .tasks .done-tasks-list__add .add-task-title::before,
-.wrapper .content .done-tasks .tasks-list__add .add-task-title::before,
-.wrapper .content .done-tasks .done-tasks-list__add .add-task-title::before {
-  content: "";
-  width: 29px;
-  display: inline-block;
-  height: 29px;
-  background: url(../scss/components/tasks/img/add.svg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
-  margin: -4px 0 0 0;
-}
-.wrapper .content .tasks .tasks-list__add:hover,
-.wrapper .content .tasks .done-tasks-list__add:hover,
-.wrapper .content .done-tasks .tasks-list__add:hover,
-.wrapper .content .done-tasks .done-tasks-list__add:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.wrapper .content .tasks .tasks-list__add_show,
-.wrapper .content .tasks .done-tasks-list__add_show,
-.wrapper .content .done-tasks .tasks-list__add_show,
-.wrapper .content .done-tasks .done-tasks-list__add_show {
-  display: flex;
-}
-.wrapper .content .tasks .tasks-list__add_hide,
-.wrapper .content .tasks .done-tasks-list__add_hide,
-.wrapper .content .done-tasks .tasks-list__add_hide,
-.wrapper .content .done-tasks .done-tasks-list__add_hide {
-  display: none;
-}
-.wrapper .content .tasks .tasks-list .create-task-form_hide,
-.wrapper .content .tasks .done-tasks-list .create-task-form_hide,
-.wrapper .content .done-tasks .tasks-list .create-task-form_hide,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form_hide {
-  display: none;
-}
-.wrapper .content .tasks .tasks-list .create-task-form_show,
-.wrapper .content .tasks .done-tasks-list .create-task-form_show,
-.wrapper .content .done-tasks .tasks-list .create-task-form_show,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form_show {
-  display: flex;
-}
-.wrapper .content .tasks .tasks-list .create-task-form,
-.wrapper .content .tasks .done-tasks-list .create-task-form,
-.wrapper .content .done-tasks .tasks-list .create-task-form,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form {
-  flex-direction: column;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 0 20px 12px;
-  margin: 10px 0;
-}
-.wrapper .content .tasks .tasks-list .create-task-form__input,
-.wrapper .content .tasks .done-tasks-list .create-task-form__input,
-.wrapper .content .done-tasks .tasks-list .create-task-form__input,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form__input {
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  padding: 15px 0;
-  margin-bottom: 10px;
-}
-.wrapper .content .tasks .tasks-list .create-task-form__input::placeholder,
-.wrapper .content .tasks .done-tasks-list .create-task-form__input::placeholder,
-.wrapper .content .done-tasks .tasks-list .create-task-form__input::placeholder,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form__input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-  font-style: italic;
-}
-.wrapper .content .tasks .tasks-list .create-task-form__label,
-.wrapper .content .tasks .done-tasks-list .create-task-form__label,
-.wrapper .content .done-tasks .tasks-list .create-task-form__label,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form__label {
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 6px;
-}
-.wrapper .content .tasks .tasks-list .create-task-form__number,
-.wrapper .content .tasks .done-tasks-list .create-task-form__number,
-.wrapper .content .done-tasks .tasks-list .create-task-form__number,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form__number {
-  width: 80px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 5px 10px;
-  margin-bottom: 20px;
-}
-.wrapper .content .tasks .tasks-list .create-task-form-btns__btn,
-.wrapper .content .tasks .done-tasks-list .create-task-form-btns__btn,
-.wrapper .content .done-tasks .tasks-list .create-task-form-btns__btn,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form-btns__btn {
-  width: 80px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin-right: 20px;
-  transition: 0.3s ease-in;
-  cursor: pointer;
-  padding: 6px 0;
-  margin-right: 5px;
-}
-.wrapper .content .tasks .tasks-list .create-task-form-btns__btn:last-child,
-.wrapper .content .tasks .done-tasks-list .create-task-form-btns__btn:last-child,
-.wrapper .content .done-tasks .tasks-list .create-task-form-btns__btn:last-child,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form-btns__btn:last-child {
-  margin-right: 0;
-}
-.wrapper .content .tasks .tasks-list .create-task-form-btns__btn:hover,
-.wrapper .content .tasks .done-tasks-list .create-task-form-btns__btn:hover,
-.wrapper .content .done-tasks .tasks-list .create-task-form-btns__btn:hover,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form-btns__btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.wrapper .content .tasks .tasks-list .create-task-form-btns__btn:active,
-.wrapper .content .tasks .done-tasks-list .create-task-form-btns__btn:active,
-.wrapper .content .done-tasks .tasks-list .create-task-form-btns__btn:active,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form-btns__btn:active {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-.wrapper .content .tasks .tasks-list .create-task-form-btns .cancel-btn,
-.wrapper .content .tasks .done-tasks-list .create-task-form-btns .cancel-btn,
-.wrapper .content .done-tasks .tasks-list .create-task-form-btns .cancel-btn,
-.wrapper .content .done-tasks .done-tasks-list .create-task-form-btns .cancel-btn {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: transparent;
-}
 .wrapper .content .tasks .tasks-list__elem,
 .wrapper .content .tasks .done-tasks-list__elem,
 .wrapper .content .done-tasks .tasks-list__elem,
@@ -438,6 +279,106 @@
 .wrapper .content .tasks .tasks-list__elem_active:hover,
 .wrapper .content .done-tasks .tasks-list__elem_active:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+.wrapper .content .control-elems__add {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s linear;
+  cursor: pointer;
+  padding: 0 20px;
+  margin: 10px 0;
+}
+.wrapper .content .control-elems__add .add-task-title {
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.wrapper .content .control-elems__add .add-task-title::before {
+  content: "";
+  width: 29px;
+  display: inline-block;
+  height: 29px;
+  background: url(../scss/components/tasks/img/add.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+  margin: -4px 0 0 0;
+}
+.wrapper .content .control-elems__add:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.wrapper .content .control-elems .create-task-form_hide {
+  display: none;
+}
+.wrapper .content .control-elems .create-task-form_show {
+  display: flex;
+}
+.wrapper .content .control-elems .create-task-form {
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0 20px 12px;
+  margin: 10px 0;
+}
+.wrapper .content .control-elems .create-task-form__input {
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 15px 0;
+  margin-bottom: 10px;
+}
+.wrapper .content .control-elems .create-task-form__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+.wrapper .content .control-elems .create-task-form__label {
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 6px;
+}
+.wrapper .content .control-elems .create-task-form__number {
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+.wrapper .content .control-elems .create-task-form-btns__btn {
+  width: 80px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 20px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-right: 5px;
+}
+.wrapper .content .control-elems .create-task-form-btns__btn:last-child {
+  margin-right: 0;
+}
+.wrapper .content .control-elems .create-task-form-btns__btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.wrapper .content .control-elems .create-task-form-btns__btn:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.wrapper .content .control-elems .create-task-form-btns .cancel-btn {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
 }
 
 .modal-how {
