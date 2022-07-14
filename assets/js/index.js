@@ -1,7 +1,8 @@
 import modal from "./modules/modals.mjs";
+import tasks from "./modules/tasks.mjs";
 import timerModule from "./modules/timer.mjs";
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   timerModule();
   modal(".open-modal-how", ".modal-how", ".ok", "modal-how_active");
   modal(
@@ -10,4 +11,6 @@ window.addEventListener("DOMContentLoaded", () => {
     ".cancel",
     "modal-settings_active"
   );
+
+  tasks();
 });
