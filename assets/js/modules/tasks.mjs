@@ -5,90 +5,42 @@ const tasks = () => {
     formAddBtn = document.querySelector(".add-btn"),
     formCancelBtn = document.querySelector(".cancel-btn");
 
-  let activeTasks = [
-    {
-      isDone: false,
-      isActive: true,
-      taskTitle: "Task Name",
-      pomodorosNeed: 4,
-      currentPomodoros: 1,
-      time: 600,
-    },
-  ];
+  function init() {
+    getData();
+  }
 
-  let taskObj = [
-    {
-      tagName: "div",
-      props: {
-        class: "tasks-list__elem tasks-list__elem_active task",
-      },
-    },
-    {
-      tagName: "div",
-      props: {
-        class: "checkbox-container",
-      },
-    },
-    {
-      tagName: "input",
-      props: {
-        class: "checkbox",
-        type: "checkbox",
-        name: "task-done",
-      },
-    },
-    {
-      tagName: "label",
-      props: {
-        for: "task-done",
-      },
-    },
-    {
-      tagName: "p",
-      props: {
-        class: "task-title",
-        text: null,
-      },
-    },
-    {
-      tagName: "div",
-      props: {
-        class: "task-stat",
-      },
-    },
-    {
-      tagName: "span",
-      props: {
-        class: "task-stat__quanity",
-        text: "/",
-      },
-    },
-    {
-      tagName: "span",
-      props: {
-        class: "current",
-        text: null,
-      },
-    },
-    {
-      tagName: "span",
-      props: {
-        class: "need",
-        text: null,
-      },
-    },
-    {
-      tagName: "span",
-      props: {
-        class: '"task-stat__time',
-        text: null,
-      },
-    },
-  ];
+  function getData() {
+    let promise = fetch("assets/js/data.json").then((res) =>
+      res.json().then((data) =>
+        data.forEach((item) => {
+          createTasks(item);
+        })
+      )
+    );
+  }
 
-  function createTaks(obj) {
-    if (obj.taskTitle.length <= 0 || obj.pomodoros <= 0) {
-      alert("Хуйню написал урод");
+  function isChekboxCheked(checkbox, isCheked) {
+    if (isCheked) {
+      checkbox.checked = true;
+    }
+  }
+
+  function displayTime(time, minContainer, secContainer) {
+    let min = Math.floor(time / 60),
+      sec = time % 60;
+
+    String(min).length == 1
+      ? (minContainer.textContent = "0" + min)
+      : (minContainer.textContent = min);
+
+    String(sec).length == 1
+      ? (secContainer.textContent = "0" + sec)
+      : (secContainer.textContent = sec);
+  }
+
+  function createTasks(obj) {
+    if (obj.taskTitle.length <= 0 || obj.pomodorosNeed <= 0) {
+      alert("Less then 1 characters length");
       return;
     }
 
@@ -102,7 +54,10 @@ const tasks = () => {
       taskStatQuanityCurrent = document.createElement("span"),
       taskStatQuanityDivider = document.createElement("span"),
       taskStatQuanityNeed = document.createElement("span"),
-      taskStatTime = document.createElement("span");
+      taskStatTimeContainer = document.createElement("span"),
+      taskStatTimeSec = document.createElement("span"),
+      taskStatTimeMin = document.createElement("span"),
+      taskStatTimeDivider = document.createElement("span");
 
     container.setAttribute("class", "tasks-list__elem task");
     checkboxContainer.setAttribute("class", "checkbox-container");
@@ -115,13 +70,20 @@ const tasks = () => {
     taskStatQuanity.setAttribute("class", "task-stat__quanity");
     taskStatQuanityCurrent.setAttribute("class", "current");
     taskStatQuanityNeed.setAttribute("class", "need");
-    taskStatTime.setAttribute("class", "task-stat__time");
+    taskStatTimeContainer.setAttribute("class", "task-stat__time");
+    taskStatTimeMin.setAttribute("class", "task-stat__min");
+    taskStatTimeDivider.setAttribute("class", "task-stat__divider");
+    taskStatTimeSec.setAttribute("class", "task-stat__sec");
 
     taskName.textContent = obj.taskTitle;
-    taskStatQuanityCurrent.textContent = "0";
+    taskStatQuanityCurrent.textContent = obj.currentPomodoros;
     taskStatQuanityDivider.textContent = "/";
-    taskStatQuanityNeed.textContent = obj.pomodoros;
-    taskStatTime.textContent = "00:00";
+    taskStatTimeDivider.textContent = ":";
+    taskStatQuanityNeed.textContent = obj.pomodorosNeed;
+
+    isChekboxCheked(checkboxInput, obj.isDone);
+
+    displayTime(obj.time, taskStatTimeMin, taskStatTimeSec);
 
     tasksContainer.append(container);
     container.append(checkboxContainer);
@@ -133,9 +95,14 @@ const tasks = () => {
     taskStatQuanity.append(taskStatQuanityCurrent);
     taskStatQuanity.append(taskStatQuanityDivider);
     taskStatQuanity.append(taskStatQuanityNeed);
-    taskStatContainer.append(taskStatTime);
+    taskStatContainer.append(taskStatTimeContainer);
+    taskStatTimeContainer.append(taskStatTimeMin);
+    taskStatTimeContainer.append(taskStatTimeDivider);
+    taskStatTimeContainer.append(taskStatTimeSec);
 
     openForm(false);
+    document.querySelector(".create-task-form__input").value = "";
+    document.querySelector(".create-task-form__number").value = "1";
   }
 
   function openForm(bool) {
@@ -158,12 +125,18 @@ const tasks = () => {
 
   formAddBtn.addEventListener("click", () => {
     let newTaskObj = {
+      isDone: false,
+      isActive: false,
       taskTitle: document.querySelector("input[name=create-task-title]").value,
-      pomodoros: document.querySelector("input[name=create-task-number]").value,
+      currentPomodoros: 0,
+      pomodorosNeed: document.querySelector("input[name=create-task-number]")
+        .value,
+      time: 0,
     };
-
-    createTaks(newTaskObj);
+    createTasks(newTaskObj);
   });
+
+  init();
 };
 
 export default tasks;
