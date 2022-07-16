@@ -146,6 +146,7 @@ const timerModule = () => {
     item.addEventListener("click", (event) => {
       if (timer.isPause == false) {
         timer.clear();
+        timer.currentInterval = 0;
       }
 
       btnStart.style.display = "block";

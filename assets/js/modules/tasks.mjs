@@ -19,9 +19,36 @@ const tasks = () => {
     );
   }
 
+  function handlerTasks(task) {
+    task.addEventListener("click", (event) => {
+      console.log(event.target);
+      if (
+        event.target.classList.contains("tasks-list__elem") ||
+        event.target.classList.contains("task-title")
+      ) {
+        clearActiveClass();
+        task.classList.add("tasks-list__elem_active");
+      }
+    });
+  }
+
+  function clearActiveClass() {
+    const tasks = document.querySelectorAll(".task");
+
+    tasks.forEach((item) => {
+      item.classList.remove("tasks-list__elem_active");
+    });
+  }
+
   function isChekboxCheked(checkbox, isCheked) {
     if (isCheked) {
       checkbox.checked = true;
+    }
+  }
+
+  function isActiveTask(task, isActive) {
+    if (isActive) {
+      task.classList.add("tasks-list__elem_active");
     }
   }
 
@@ -81,8 +108,8 @@ const tasks = () => {
     taskStatTimeDivider.textContent = ":";
     taskStatQuanityNeed.textContent = obj.pomodorosNeed;
 
+    isActiveTask(container, obj.isActive);
     isChekboxCheked(checkboxInput, obj.isDone);
-
     displayTime(obj.time, taskStatTimeMin, taskStatTimeSec);
 
     tasksContainer.append(container);
@@ -101,8 +128,8 @@ const tasks = () => {
     taskStatTimeContainer.append(taskStatTimeSec);
 
     openForm(false);
-    document.querySelector(".create-task-form__input").value = "";
-    document.querySelector(".create-task-form__number").value = "1";
+    clearForm();
+    handlerTasks(container);
   }
 
   function openForm(bool) {
@@ -113,6 +140,11 @@ const tasks = () => {
       formAdd.classList.remove("create-task-form_show");
       formAdd.classList.add("create-task-form_hide");
     }
+  }
+
+  function clearForm() {
+    document.querySelector(".create-task-form__input").value = "";
+    document.querySelector(".create-task-form__number").value = "1";
   }
 
   btnAddTask.addEventListener("click", () => {

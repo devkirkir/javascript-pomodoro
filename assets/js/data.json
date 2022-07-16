@@ -1,7 +1,7 @@
 [
   {
-    "isDone": true,
-    "isActive": false,
+    "isDone": false,
+    "isActive": true,
     "taskTitle": "Task 123",
     "pomodorosNeed": 4,
     "currentPomodoros": 3,
@@ -9,8 +9,8 @@
   },
 
   {
-    "isDone": false,
-    "isActive": true,
+    "isDone": true,
+    "isActive": false,
     "taskTitle": "Task Name",
     "pomodorosNeed": 4,
     "currentPomodoros": 1,

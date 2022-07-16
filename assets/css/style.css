@@ -395,9 +395,11 @@
   border-radius: 10px;
   padding: 15px 20px;
   z-index: 3;
+  justify-content: space-between;
   display: none;
   flex-direction: column;
   align-items: center;
+  min-width: 320px;
 }
 .modal-how__title {
   font-size: 28px;
@@ -406,7 +408,7 @@
   text-align: center;
 }
 .modal-how__list {
-  margin: 20px 20px;
+  margin: 0 20px;
 }
 .modal-how__list li {
   font-size: 18px;
