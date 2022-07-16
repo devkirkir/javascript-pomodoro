@@ -16,9 +16,10 @@ const timerModule = () => {
     type: "pomodoro",
     currentInterval: 0,
     longBreakInterval: 4,
+    secLeft: 0,
     time: {
-      pomodoro: 25,
-      shortBreak: 5,
+      pomodoro: 0.1,
+      shortBreak: 0.1,
       longBreak: 15,
     },
     start: function (type) {
@@ -44,6 +45,13 @@ const timerModule = () => {
         timer.type = "longBreak";
         timer.start(timer.type);
       } else if (timer.type == "pomodoro") {
+        if (document.querySelector(".tasks-list__elem_active")) {
+          let activeTask = document.querySelector(".tasks-list__elem_active");
+
+          activeTask.childNodes[2].firstChild.childNodes[0].textContent =
+            +activeTask.childNodes[2].firstChild.childNodes[0].innerHTML + 1;
+        }
+
         timer.type = "shortBreak";
         timer.start(timer.type);
       } else if (timer.type == "shortBreak") {
@@ -68,38 +76,55 @@ const timerModule = () => {
         return;
       }
 
+      if (timer.type == "pomodoro") {
+        if (document.querySelector(".tasks-list__elem_active")) {
+          let activeTask = document.querySelector(".tasks-list__elem_active");
+          timer.secLeft =
+            activeTask.childNodes[2].lastChild.childNodes[0].innerHTML * 60 +
+            +activeTask.childNodes[2].lastChild.childNodes[2].innerHTML;
+          timer.secLeft += 1;
+
+          timerDisplay(
+            timer.secLeft,
+            activeTask.childNodes[2].lastChild.childNodes[0],
+            activeTask.childNodes[2].lastChild.childNodes[2]
+          );
+        }
+      }
+
       timer.timeRemaining -= 1;
-      timerDisplay(timer.timeRemaining);
+
+      timerDisplay(timer.timeRemaining, counterMin, counterSec);
     },
     clear: function () {
       clearInterval(interval);
     },
   };
 
-  const init = () => {
+  function init() {
     switchTypes(timer.type);
-  };
+  }
 
-  const timerDisplay = (time) => {
+  function timerDisplay(time, selectorMin, selectorSec) {
     let min = Math.floor(time / 60),
       sec = time % 60;
 
     String(min).length == 1
-      ? (counterMin.textContent = "0" + min)
-      : (counterMin.textContent = min);
+      ? (selectorMin.textContent = "0" + min)
+      : (selectorMin.textContent = min);
 
     String(sec).length == 1
-      ? (counterSec.textContent = "0" + sec)
-      : (counterSec.textContent = sec);
-  };
+      ? (selectorSec.textContent = "0" + sec)
+      : (selectorSec.textContent = sec);
+  }
 
-  const clearClass = (arr, className) => {
+  function clearClass(arr, className) {
     arr.forEach((item) => {
       item.classList.remove(className);
     });
-  };
+  }
 
-  const switchTypes = (type) => {
+  function switchTypes(type) {
     switch (type) {
       case "pomodoro":
         timer.timeRemaining = timer.time.pomodoro * 60;
@@ -114,15 +139,14 @@ const timerModule = () => {
         timer.type = "longBreak";
         break;
     }
-    timerDisplay(timer.timeRemaining);
-  };
+    timerDisplay(timer.timeRemaining, counterMin, counterSec);
+  }
 
   btnStart.addEventListener("click", () => {
     btnStart.style.display = "none";
     btnPause.style.display = "block";
     btnNext.style.display = "block";
     timer.start(timer.type);
-    // interval = setInterval(timer.tick, 1000);
   });
 
   btnPause.addEventListener("click", () => {
