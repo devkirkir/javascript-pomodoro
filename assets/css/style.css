@@ -212,16 +212,23 @@
   border: 2px solid transparent;
 }
 .wrapper .content .tasks .tasks-list__elem .task-title,
-.wrapper .content .tasks .tasks-list__elem .done-task-title,
 .wrapper .content .tasks .done-tasks-list__elem .task-title,
-.wrapper .content .tasks .done-tasks-list__elem .done-task-title,
 .wrapper .content .done-tasks .tasks-list__elem .task-title,
-.wrapper .content .done-tasks .tasks-list__elem .done-task-title,
-.wrapper .content .done-tasks .done-tasks-list__elem .task-title,
-.wrapper .content .done-tasks .done-tasks-list__elem .done-task-title {
+.wrapper .content .done-tasks .done-tasks-list__elem .task-title {
   color: #fff;
   font-size: 18px;
   font-weight: 300;
+  flex: 1;
+  margin: 0 20px;
+}
+.wrapper .content .tasks .tasks-list__elem .done-task-title,
+.wrapper .content .tasks .done-tasks-list__elem .done-task-title,
+.wrapper .content .done-tasks .tasks-list__elem .done-task-title,
+.wrapper .content .done-tasks .done-tasks-list__elem .done-task-title {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+  font-weight: 300;
+  text-decoration: line-through;
   flex: 1;
   margin: 0 20px;
 }

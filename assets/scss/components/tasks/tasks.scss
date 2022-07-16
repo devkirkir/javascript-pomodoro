@@ -23,11 +23,19 @@
 
       @import "checkbox/checkbox.scss";
 
-      .task-title,
-      .done-task-title {
+      .task-title {
         color: #fff;
         font-size: 18px;
         font-weight: 300;
+        flex: 1;
+        margin: 0 20px;
+      }
+
+      .done-task-title {
+        color: $white04;
+        font-size: 18px;
+        font-weight: 300;
+        text-decoration: line-through;
         flex: 1;
         margin: 0 20px;
       }

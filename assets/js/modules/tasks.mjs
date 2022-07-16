@@ -1,5 +1,6 @@
 const tasks = () => {
   const tasksContainer = document.querySelector(".tasks-list"),
+    doneTasksContainer = document.querySelector(".done-tasks-list"),
     btnAddTask = document.querySelector(".control-elems__add"),
     formAdd = document.querySelector(".create-task-form"),
     formAddBtn = document.querySelector(".add-btn"),
@@ -21,7 +22,6 @@ const tasks = () => {
 
   function handlerTasks(task) {
     task.addEventListener("click", (event) => {
-      console.log(event.target);
       if (
         event.target.classList.contains("tasks-list__elem") ||
         event.target.classList.contains("task-title")
@@ -40,16 +40,37 @@ const tasks = () => {
     });
   }
 
-  function isChekboxCheked(checkbox, isCheked) {
-    if (isCheked) {
-      checkbox.checked = true;
-    }
-  }
-
   function isActiveTask(task, isActive) {
     if (isActive) {
       task.classList.add("tasks-list__elem_active");
     }
+  }
+
+  function doneTask(checkbox, taskContainer) {
+    checkbox.addEventListener("click", () => {
+      let taskTitle = taskContainer.childNodes[1].innerHTML,
+        currentPomodoros =
+          taskContainer.childNodes[2].firstChild.childNodes[0].innerHTML,
+        pomodorosNeed =
+          taskContainer.childNodes[2].firstChild.childNodes[2].innerHTML;
+
+      let time =
+        taskContainer.childNodes[2].lastChild.childNodes[0].innerHTML * 60 +
+        +taskContainer.childNodes[2].lastChild.childNodes[2].innerHTML;
+
+      const obj = {
+        isDone: true,
+        isActive: false,
+        taskTitle,
+        pomodorosNeed,
+        currentPomodoros,
+        time,
+      };
+
+      taskContainer.remove();
+
+      createTasks(obj);
+    });
   }
 
   function displayTime(time, minContainer, secContainer) {
@@ -68,6 +89,56 @@ const tasks = () => {
   function createTasks(obj) {
     if (obj.taskTitle.length <= 0 || obj.pomodorosNeed <= 0) {
       alert("Less then 1 characters length");
+      return;
+    }
+
+    if (obj.isDone) {
+      const container = document.createElement("div"),
+        taskName = document.createElement("p"),
+        taskStatContainer = document.createElement("div"),
+        taskStatQuanity = document.createElement("span"),
+        taskStatQuanityCurrent = document.createElement("span"),
+        taskStatQuanityDivider = document.createElement("span"),
+        taskStatQuanityNeed = document.createElement("span"),
+        taskStatTimeContainer = document.createElement("span"),
+        taskStatTimeSec = document.createElement("span"),
+        taskStatTimeMin = document.createElement("span"),
+        taskStatTimeDivider = document.createElement("span");
+
+      container.setAttribute("class", "done-tasks-list__elem done");
+      taskName.setAttribute("class", "done-task-title");
+      taskStatContainer.setAttribute("class", "done-task-stat");
+      taskStatQuanity.setAttribute("class", "task-stat__quanity");
+      taskStatQuanityCurrent.setAttribute("class", "current");
+      taskStatQuanityNeed.setAttribute("class", "need");
+      taskStatTimeContainer.setAttribute("class", "task-stat__time");
+      taskStatTimeMin.setAttribute("class", "task-stat__min");
+      taskStatTimeDivider.setAttribute("class", "task-stat__divider");
+      taskStatTimeSec.setAttribute("class", "task-stat__sec");
+
+      taskName.textContent = obj.taskTitle;
+      taskStatQuanityCurrent.textContent = obj.currentPomodoros;
+      taskStatQuanityDivider.textContent = "/";
+      taskStatTimeDivider.textContent = ":";
+      taskStatQuanityNeed.textContent = obj.pomodorosNeed;
+
+      displayTime(obj.time, taskStatTimeMin, taskStatTimeSec);
+
+      doneTasksContainer.append(container);
+      container.append(taskName);
+      container.append(taskStatContainer);
+      taskStatContainer.append(taskStatQuanity);
+      taskStatQuanity.append(taskStatQuanityCurrent);
+      taskStatQuanity.append(taskStatQuanityDivider);
+      taskStatQuanity.append(taskStatQuanityNeed);
+      taskStatContainer.append(taskStatTimeContainer);
+      taskStatTimeContainer.append(taskStatTimeMin);
+      taskStatTimeContainer.append(taskStatTimeDivider);
+      taskStatTimeContainer.append(taskStatTimeSec);
+
+      clearForm();
+      handlerTasks(container);
+
       return;
     }
 
@@ -109,7 +180,6 @@ const tasks = () => {
     taskStatQuanityNeed.textContent = obj.pomodorosNeed;
 
     isActiveTask(container, obj.isActive);
-    isChekboxCheked(checkboxInput, obj.isDone);
     displayTime(obj.time, taskStatTimeMin, taskStatTimeSec);
 
     tasksContainer.append(container);
@@ -126,6 +196,8 @@ const tasks = () => {
     taskStatTimeContainer.append(taskStatTimeMin);
     taskStatTimeContainer.append(taskStatTimeDivider);
     taskStatTimeContainer.append(taskStatTimeSec);
+
+    doneTask(checkboxInput, container);
 
     openForm(false);
     clearForm();
