@@ -1,4 +1,5 @@
 import settings from "./settings.mjs";
+import initNotification from "./notification.mjs";
 
 const timerModule = () => {
   const counterMin = document.querySelector(".count-minutes"),
@@ -45,6 +46,7 @@ const timerModule = () => {
         timer.type = "longBreak";
         timer.start(timer.type);
         document.title = "Long Break |Time for a long break!";
+        initNotification("Long Break");
       } else if (timer.type == "pomodoro") {
         if (document.querySelector(".tasks-list__elem_active")) {
           let activeTask = document.querySelector(".tasks-list__elem_active");
@@ -56,14 +58,17 @@ const timerModule = () => {
         timer.type = "shortBreak";
         timer.start(timer.type);
         document.title = `Short Break | Time for a break!`;
+        initNotification("Short Break");
       } else if (timer.type == "shortBreak") {
         timer.type = "pomodoro";
         timer.start(timer.type);
         document.title = "Pomodoro | Time for a work!";
+        initNotification("Pomodoro");
       } else if (timer.type == "longBreak") {
         timer.type = "pomodoro";
         timer.start(timer.type);
         document.title = "Pomodoro | Time for a work!";
+        initNotification("Pomodoro");
       }
       clearClass(timerTypes, "type-container__elem_active");
       document
