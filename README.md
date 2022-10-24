@@ -5,7 +5,7 @@
 
 Буду рад фидбеку! 
 
-🔗 [GitHub Pages](https://zzloyshkolnik.github.io/JavaScript-Pomodoro/)
+🔗 [GitHub Pages](https://devkirkir.github.io/JavaScript-Pomodoro/)
 
 ## Технологии
 - HTML
