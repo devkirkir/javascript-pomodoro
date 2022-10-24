@@ -5,7 +5,7 @@
 
 Буду рад фидбеку! 
 
-🔗 [GitHub Pages](https://www.google.com)
+🔗 [GitHub Pages](https://zzloyshkolnik.github.io/VanillaJS-Pomodoro/)
 
 ## Технологии
 - HTML
