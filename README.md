@@ -1,13 +1,12 @@
 # ⚡️ JavaScript | Pomodoro Timer
 
-Обычный  JS помодоро, который позволяет ставить и отслеживать задачи.
-Местами работа сделана сомнительно, но в целом, думаю, что неплохо.
+Plain JS pomodoro, which allows you to set and track tasks.
 
-Буду рад фидбеку! 
+I will be glad to feedback!
 
 🔗 [GitHub Pages](https://devkirkir.github.io/JavaScript-Pomodoro/)
 
-## Технологии
+## Technologies
 - HTML
 - SCSS
 - JS
