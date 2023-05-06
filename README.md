@@ -4,7 +4,7 @@ Plain JS pomodoro, which allows you to set and track tasks.
 
 I will be glad to feedback!
 
-🔗 [GitHub Pages](https://devkirkir.github.io/JavaScript-Pomodoro/)
+🔗 [GitHub Pages](https://devkirkir.github.io/javascript-pomodoro/)
 
 ## Technologies
 - HTML
